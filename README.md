@@ -100,23 +100,6 @@ denr-app/
 
 ---
 
-## 🛠 Environment Variables
-
-```dotenv
-# Primary DB (local app data)
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=tskdb2
-DB_USERNAME=root
-DB_PASSWORD=
-
-# DENR Core DB (external session validation)
-DB2_HOST=127.0.0.1
-DB2_PORT=3307
-DB2_DATABASE=denr_ncr
-DB2_USERNAME=kym.carabeo
-DB2_PASSWORD=DENRncr2026!
 
 SESSION_DRIVER=database   # requires sessions table — already in migration
 ```
