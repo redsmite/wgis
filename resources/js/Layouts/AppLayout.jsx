@@ -40,7 +40,7 @@ export default function AppLayout({ children, title }) {
                     </div>
                     <div>
                         <p className="text-white font-bold text-sm leading-tight">DENR NCR</p>
-                        <p className="text-sky-100 text-xs opacity-80">WRUS Geographic System</p>
+                        <p className="text-sky-100 text-xs opacity-80">WRUS Geographic Information System</p>
                     </div>
                 </div>
 
@@ -50,6 +50,7 @@ export default function AppLayout({ children, title }) {
                         Navigation
                     </p>
                     <NavLink href={route('dashboard')} icon={<HomeIcon />} label="Dashboard" />
+                    <NavLink href={route('permits.index')} icon={<PermitIcon />} label="Water Permits" />
                 </nav>
 
                 {/* User footer */}
@@ -158,5 +159,11 @@ const LogoutIcon = () => (
 const MenuIcon = () => (
     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+);
+const PermitIcon = () => (
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
     </svg>
 );
