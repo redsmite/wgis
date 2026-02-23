@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -35,13 +36,29 @@ class User extends Authenticatable
         ];
     }
 
-    /**
-     * Computed full name attribute.
-     */
+    // ── Relationships ──────────────────────────────────────────────────────
+
+    public function division(): BelongsTo
+    {
+        return $this->belongsTo(Division::class, 'division_id');
+    }
+
+    // ── Accessors ─────────────────────────────────────────────────────────
+
     public function getFullNameAttribute(): string
     {
         $full = trim("{$this->first_name} {$this->last_name}");
         return $full ?: $this->name;
+    }
+
+    public function getDivisionNameAttribute(): string
+    {
+        return $this->division?->division ?? 'N/A';
+    }
+
+    public function getDivisionAbbrAttribute(): string
+    {
+        return $this->division?->abbr ?? '';
     }
 
     public function isAdmin(): bool

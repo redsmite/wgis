@@ -36,7 +36,8 @@ export default function Dashboard({ stats }) {
                         <h2 className="text-2xl font-bold mt-0.5">{user.full_name || user.name}</h2>
                         <div className="flex flex-wrap items-center gap-2 mt-2">
                             {user.position && <Badge icon={<BriefcaseIcon />} label={user.position} />}
-                            {user.division_id && <Badge icon={<OfficeIcon />} label={user.division_id} />}
+                            {/* ✅ CHANGED: division_id → division_name */}
+                            {user.division_name && <Badge icon={<OfficeIcon />} label={user.division_name} />}
                         </div>
                     </div>
                     <div className="w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold flex-shrink-0"
@@ -70,7 +71,8 @@ export default function Dashboard({ stats }) {
                     <ProfileField label="First Name" value={user.first_name} />
                     <ProfileField label="Last Name"  value={user.last_name} />
                     <ProfileField label="Position"   value={user.position} />
-                    <ProfileField label="Division"   value={user.division_id} />
+                    {/* ✅ CHANGED: division_id → division_name */}
+                    <ProfileField label="Division"   value={user.division_name} />
                 </div>
             </div>
         </AppLayout>
