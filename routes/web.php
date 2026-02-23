@@ -25,9 +25,10 @@ Route::middleware([ExternalSessionAuth::class])->group(function () {
     Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::post('/logout', [DashboardController::class, 'logout'])->name('logout');
-        
-        Route::get('/permits', [PermitController::class, 'index'])->name('permits.index');
-        Route::get('/permits/{id}', [PermitController::class, 'show'])->name('permits.show');
-
+                
+        Route::get('/permits',                    [PermitController::class, 'index'])->name('permits.index');
+        Route::get('/permits/{id}',               [PermitController::class, 'show'])->name('permits.show');
+        Route::post('/permits/{id}',              [PermitController::class, 'update'])->name('permits.update');
+        Route::delete('/permit-photos/{photoId}', [PermitController::class, 'deletePhoto'])->name('permits.photos.delete');
     });
 });
